@@ -1,0 +1,16 @@
+import java.io.*;
+
+/**
+ * @author 一个有趣的人
+ * @author 3410322436@qq.com
+ */
+public class IO {
+	
+	public String getInput() {
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		 String str;
+		 str = reader.readLine();
+		 System.out.println(str);
+		 return str;
+	}
+}

@@ -1,0 +1,31 @@
+package study;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.Inet4Address;
+import java.util.Arrays;
+
+import jdk.nashorn.internal.runtime.regexp.joni.ast.StringNode;
+import sun.security.x509.IPAddressName;
+
+public class Study {
+	public static void main(String[] args) {
+		Inet4Address host = Inet4Address.getLocalHost();
+		String hostAddress = host.getHostAddress();
+		int pos= hostAddress.lastIndexOf(".");
+		String wd = hostAddress.substring(0, pos+1);
+		Process process = Runtime.getRuntime().exec("ping "+ ip + "-w 280 -n 1");
+		InputStream is = process.getInputStream();
+		InputStreamReader inputStreamReader = new InputStreamReader(is);
+		BufferedReader in = new BufferedReader(isr);
+		String line = in.readLine();
+		while (line != null) {
+			if(line != null && !line.equals("")) {
+				if (line.substring(0,2).equals("")) {
+					
+				}
+			}
+		}
+	}
+}

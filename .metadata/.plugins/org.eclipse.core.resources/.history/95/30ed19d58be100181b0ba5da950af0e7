@@ -1,0 +1,190 @@
+import java.util.*;
+/**
+ * @author 一个有趣的人
+ * @author 3410322436@qq.com
+ */
+public class UI {
+	private static String buffer = "";
+	private static int WIDTH = 20;
+	private static String splitToken = "-".repeat(WIDTH) + "\n";
+	private static HashMap<Integer, String>choice = new HashMap<Integer, String>();
+	/**
+	 * 这里初始化系统目前所有可用功能
+	 * 前面为功能代号，后面为选项名称
+	 */
+	public UI() {
+		choice.put(0, "退出系统");
+		choice.put(1, "添加用户");
+		choice.put(2, "添加角色");
+		choice.put(3, "修改角色权限");
+		choice.put(4, "生成每日结帐报告并储存");
+		choice.put(5, "查看每日结帐报告");
+		choice.put(6, "查询空桌");
+		choice.put(7, "开台点单");
+		choice.put(8, "结帐");
+		choice.put(9, "检查要做的菜");
+		choice.put(10, "完成某个菜");
+	}
+	/**
+	 * UI的功能区
+	 */
+	public static void print() {
+		String msg = "";
+		for (int i = 0; i < buffer.length(); i++) {
+			if (i % WIDTH == 0 && buffer.charAt(i) == '\n') {
+				System.out.println(msg);
+				msg = "";
+			}
+			msg += buffer.charAt(i);
+		}
+		buffer = "";
+	}
+	public static String getBuffer() {
+		String string = buffer;
+		buffer = "";
+		return string;
+	}
+	public static void errorMsg(String error) {
+		String msg = "! " + error;
+		System.out.println(msg);
+	}
+	public static void orderedListShow(ArrayList<String> msg) {
+		int i = 1;
+		addSplitToken();
+		for(int j = 0, size = msg.size(); j < size - 1; j++) {
+			addOrderedItem(i++, msg.get(j));
+		}
+		addOrderedItem(0, msg.get(msg.size() - 1));
+		addSplitToken();
+		print();
+	}
+	public static void unorderedListShow(ArrayList<String> msg) {
+		addSplitToken();
+		for(int j = 0, size = msg.size(); j < size; j++) {
+			addUnorderedItem(msg.get(j));
+		}
+		addSplitToken();
+		print();
+	}
+	public static void titleShow(String msg) {
+		addSpace();
+		addSplitToken();
+		buffer += "+++++ " + msg + " +++++\n\n";
+		print();
+	}
+	public static void addSpace() {
+		buffer += "\n\n";
+	}
+	public static void addSplitToken() {
+		buffer += splitToken;
+	}
+	public static void addUnorderedItem(String item) {
+		buffer += String.format("| * %s%n", item);
+	}
+	public static void addOrderedItem(int order, String item) {
+		buffer += String.format("| %2d. %s%n", item);
+	}
+	public static void text(String msg) {
+		buffer += String.format("\t%s", msg);
+		print();
+	}
+	public static void addQuestion(String msg) {
+		buffer += String.format("~ %s?", msg);
+		print();
+	}
+	public static void inputTip(String msg) {
+		System.out.print(String.format("%s: ", msg));
+	}
+	/**
+	 * 下面是pageShow
+	 */
+	public static void doneMessage() {
+		text("...操作完成");
+	}
+	public static void welcomePage() {
+		titleShow("酒店管理系统");
+		text("欢迎使用本系统。本系统由 * 一个有趣的人 * 与 * 方方土的堃 * 共同完成！");
+		addSplitToken();
+		print();
+	}
+	public static String[] loginPage() {
+		String[] userInfo = new String[2];
+		inputTip("员工号");
+		userInfo[0] = IO.getInput();
+		inputTip("密码");
+		userInfo[1] = IO.getInput();
+		addSpace();
+		return userInfo;
+	}
+	public static void dbaRegisterPage() {
+		errorMsg("系统检测不到数据库文件");
+		errorMsg("开始重新安装");
+		titleShow("注册管理员");
+	}
+	private static void showRole(Set<String> roleInfo) {
+		ArrayList<String> menu = new ArrayList<String>();
+		menu.addAll(roleInfo);
+		orderedListShow(menu);
+	}
+	public static String[] registerPage(Set<String> roleInfo) {
+		text("添加用户");
+		inputTip("员工号");
+		float id = IO.getNum();
+		inputTip("员工名");
+		String name = IO.getInput();
+		inputTip("密码");
+		String passwd = IO.getInput();
+		showRole(roleInfo);
+		inputTip("设置的权限角色为");
+		ArrayList<String> array = new ArrayList<String>();
+		array.addAll(roleInfo);
+		String role  = array.get((int) IO.getNum());
+		String[] userInfo = {String.valueOf(id), name, passwd, role};
+		return userInfo;
+	}
+	public static int mainMenuPage(ArrayList<Integer> rolePermission) {
+		ArrayList<String> menu = new ArrayList<String>();
+		for(int i : rolePermission) {
+			if(i != 0) {menu.add(choice.get(i));}
+		}
+		menu.add(choice.get(0));
+		titleShow("主菜单");
+		orderedListShow(menu);
+		inputTip(String.format("请选择0~%d", rolePermission.size() - 1));
+		return rolePermission.get((int) IO.getNum());
+	}
+	private static void showChoice() {
+		ArrayList<String> msg = new ArrayList<String>();
+		msg.addAll(choice.values());
+		orderedListShow(msg);
+	}
+	public static Data addRolePage(Set<String> roleInfo) {
+		titleShow("修改用户权限");
+		showRole(roleInfo);
+		inputTip("新建角色名");
+		String roleName = IO.getInput();
+		text("添加权限(默认添加退出系统的权限)");
+		showChoice();
+		Set<Integer> permission = new HashSet<Integer>();
+		int p = 0;
+		while(p != -1) {
+			permission.add(p);
+			inputTip("添加权限(输入-1结束)");
+			p = (int) IO.getNum();
+		}
+		Data data = new Data();
+		data.string = roleName;
+		data.intSet = permission;
+		return data;
+	}
+	//很烦到处都要写一个转换的狮子，把set转成arraylist，希望能统一数据格式
+	public static Data changeRolePage(Data roleList) {
+		Data data = new Data();
+		titleShow("更改角色权限");
+		text("目前已有权限角色");
+		unorderedListShow(roleList.stringArray);
+		
+		return data;
+	}
+}
+

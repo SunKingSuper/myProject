@@ -1,0 +1,41 @@
+import java.util.ArrayList;
+import java.util.Iterator;
+
+import com.sun.tools.sjavac.comp.dependencies.PublicApiCollector;
+
+/**
+ * @author 一个有趣的人
+ * @author 3410322436@qq.com
+ */
+
+public class UI {
+	Strinig Buffer = ""
+	public void print(String msg) {
+		System.out.println(msg);
+	}
+	public String orderedListShow(ArrayList msg) {
+		int i = 1;
+		String newMsg = "";
+		for(String event: msg) {
+			newMsg += String.format("%d. %s%n", i++, event);
+		}
+		return newMsg;
+	}
+	public String unorderedListShow(ArrayList msg) {
+		String newMsg = "";
+		for(String event: msg) {
+			newMsg += String.format("* %s%n", event);
+		}
+		return newMsg;
+	}
+	public void errorMsg(String error) {
+		String msg = "! " + error;
+		print(msg);
+	}
+	public void bannerShow(msg) {
+		
+	}
+	public static void main(String[] args) {
+		String = 
+	}
+}

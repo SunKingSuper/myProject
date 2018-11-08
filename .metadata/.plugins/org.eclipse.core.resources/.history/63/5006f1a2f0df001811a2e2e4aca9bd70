@@ -1,0 +1,24 @@
+import java.io.Serializable;
+import java.util.*;
+
+public class Table implements Serializable {
+	
+}
+
+
+
+/**
+* 下面是关于数据表的定义
+*/
+class DishTable extends Table {
+	private ArrayList<Dish> data = new ArrayList<Dish>();
+	public void add(Dish dish) {
+		data.add(dish);
+	}
+	public void delete(int index) {
+		data.remove(index);
+	}
+	public Object get(int index) {
+		return data.get(index);
+	}
+}

@@ -1,0 +1,15 @@
+import java.util.Scanner;
+
+/**
+ * @author 一个有趣的人
+ * @author 3410322436@qq.com
+ */
+public class IO {
+	
+	public String getInput() {
+		Scanner scan = new Scanner(System.in);
+		String str = scan.next();
+		System.out.println(str);
+		return str;
+	}
+}

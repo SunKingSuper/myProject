@@ -1,0 +1,18 @@
+import java.io.BufferedReader;
+import java.io.Buffer;
+/**
+ * @author 一个有趣的人
+ * @author 3410322436@qq.com
+ */
+public class IO {
+	BufferedReader reader = new BufferedReader(System.in)
+	public String getInput() {
+		 String str;
+		 str = reader.readLine();
+		 System.out.println(str);
+		 return str;
+	}
+	public static void main(String[] args) {
+		getInput();
+	}
+}

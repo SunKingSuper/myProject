@@ -1,0 +1,73 @@
+import java.util.*;
+/**
+ * @author 一个有趣的人
+ * @author 3410322436@qq.com
+ * 我就在Core这个类谈谈我对整个系统的看法，这里Core是整个系统的开始
+ * 我是以MVC模式设计这个系统的，最基本的由database提供数据，core组织逻辑，而ui负责页面的展示
+ */
+public class Core {
+	public static void main(String[] args) {
+		Process app = new Process();
+		app.start();
+	}
+}
+
+class Flag {
+	static final int EXIT = 0;
+	static final int RUN = 1;
+	static final int LoginError = -1;
+}
+
+class Process {
+	static int status = Flag.EXIT;
+	static int priority = 0;
+	static int counter = 0;
+	static String fileDir = "database.db"; // 数据库文件
+	
+	Database database;
+	public void start() {
+		UI.welcomePage();
+		if (IO.isFileExists(fileDir)) {
+			database = (Database) IO.readData(fileDir);
+			login();
+		} else {
+			register();
+		}
+		on();
+	}
+	public void login() {
+		// userName = userInfo[0], password = userInfo[1]
+		String[] userInfo = UI.loginPage();
+		priority = database.userVerify(userInfo);
+		if (priority == Flag.LoginError) {
+			counter++;
+			if(counter < 3) {
+				UI.errorMsg("员工号或密码错误，请重新登陆");
+				login();
+			} else {
+				UI.errorMsg("登陆失败已达3次，退出程序");
+				exit();
+			}
+		}
+	}
+	public void register() {
+		database = new Database();
+		String[] DBAInfo = UI.registerPage();
+		// 写到这里我在犹豫要不要用字典控制权限 <角色名，功能合集>
+		int userID = Integer.parseInt(DBAInfo[0]);
+		String name = DBAInfo[1], password = DBAInfo[2];
+		// 这里要求我必须想清楚priority是如何控制权限的，我希望有个像数据库一样的表能够声明控制
+		String priority = "DBA";
+		database.addUsers(userID, name, password, priority);
+	}
+	public void on() {
+		while(status != Flag.EXIT) {
+			
+		}
+		exit();
+	}
+	public void exit() {
+		IO.writeData(database, fileDir);
+		System.exit(0);
+	}
+}

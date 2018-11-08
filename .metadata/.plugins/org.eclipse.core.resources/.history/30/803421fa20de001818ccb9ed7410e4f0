@@ -1,0 +1,19 @@
+package study;
+
+import java.util.Arrays;
+
+public class Study {
+	public static void main(String[] args) {
+		int[] array = new int[] {12,56,4,62,8};
+		System.out.println(Arrays.toString(array));
+		for(int i = 0; i < array.length; i++) {
+			for(int j = 1; j < array.length; j++) {
+				if(array[j] < array[j-1]) {
+					int k = array[j];
+					array[j] = array[j-1];
+					array[j-1] = k;
+				}
+			}
+		}
+	}
+}

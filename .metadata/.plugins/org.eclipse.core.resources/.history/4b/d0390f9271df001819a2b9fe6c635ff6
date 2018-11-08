@@ -1,0 +1,15 @@
+import java.util.ArrayList;
+
+public class Test {
+	public static void main(String[] args) {
+		String msg = "Hello";
+		ArrayList<String> msg2 = new ArrayList<String>(2);
+		msg2.add("Hello");
+		msg2.add("World");
+		bannerShow(msg);
+		unorderedListShow(msg2);
+		orderedListShow(msg2);
+		errorMsg(msg);
+		print();
+	}
+}

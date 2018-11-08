@@ -1,0 +1,49 @@
+import java.util.ArrayList;
+import java.util.Iterator;
+
+import com.sun.org.apache.bcel.internal.generic.StackInstruction;
+import com.sun.tools.sjavac.comp.dependencies.PublicApiCollector;
+
+/**
+ * @author 一个有趣的人
+ * @author 3410322436@qq.com
+ */
+
+public class UI {
+	static String  buffer = "";
+	static final String splitToken = "_______________________\n"
+	public void print() {
+		System.out.println(buffer);
+		buffer = "";
+	}
+	public void errorMsg(String error) {
+		String msg = "! " + error;
+		System.out.println(msg);
+	}
+	public void orderedListShow(ArrayList msg) {
+		int i = 1;
+		String newMsg = "";
+		for(String event: msg) {
+			newMsg += String.format("%d. %s%n", i++, event);
+		}
+		newMsg += splitToken;
+		buffer += newMsg;
+	}
+	public void unorderedListShow(ArrayList msg) {
+		String newMsg = "";
+		for(String event: msg) {
+			newMsg += String.format("* %s%n", event);
+		}
+		newMsg += splitToken;
+		buffer += newMsg;
+	}
+	public void bannerShow(msg) {
+		String newMsg = splitToken;
+		newMsg += msg + "\n";
+		Buffer += newMsg;
+	}
+	public static void main(String[] args) {
+		String msg = "Hello";
+		
+	}
+}

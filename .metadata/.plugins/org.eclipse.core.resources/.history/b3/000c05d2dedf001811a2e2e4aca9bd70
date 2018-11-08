@@ -1,0 +1,22 @@
+import java.io.*;
+import java.io.ObjectOutputStream;
+import java.util.Scanner;
+
+/**
+ * @author 一个有趣的人
+ * @author 3410322436@qq.com
+ */
+public class IO {
+	Scanner scan = new Scanner(System.in);
+	public String getInput() {
+		return scan.next();
+	}
+	public int getNum() {
+		return scan.nextInt();
+	}
+	public void writeObject(Object data, String fileDir) {
+		try {
+			FileOutputStream fileOutput = new FileOutputStream(fileDir);
+			ObjectOutputStream
+	}
+}

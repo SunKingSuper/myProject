@@ -1,0 +1,25 @@
+import java.io.Serializable;
+import java.util.*;
+
+public class MetaData implements Serializable{
+
+}
+
+class Dish extends MetaData{
+	String name;
+	float price;
+	boolean isAvailble;
+	public Dish(String name, float price) {
+		this.name = name;
+		this.price = price;
+		this.isAvailble = true;
+	}
+}
+
+class Order {
+	int id;
+	Date orderTime;
+	float amount;
+	ArrayList<Dish> dishList = new ArrayList<Dish>();
+	ArrayList<Integer> leftDishLish = new ArrayList<Integer>();
+}

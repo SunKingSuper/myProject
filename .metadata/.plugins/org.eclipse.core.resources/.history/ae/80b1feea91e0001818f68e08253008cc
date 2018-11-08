@@ -1,0 +1,85 @@
+import java.io.Serializable;
+import java.util.*;
+
+import com.sun.org.apache.bcel.internal.generic.NEW;
+
+/**
+ * @author 一个有趣的人
+ * @author 3410322436@qq.com
+ */
+public class Database implements Serializable {
+	private HashMap<String,Dish> dishTable = new HashMap<String,Dish>();
+	private HashMap<Integer,Order> orderTable = new HashMap<Integer,Order>();
+	private HashMap<Date,Bill> dayBillTable = new HashMap<Date,Bill>();
+	private HashMap<Integer,User> userTable = new HashMap<Integer,User>();
+	private static Integer orderID = 1;
+	public void addUsers(int userID, String name, String password, int priority) {
+		userTable.put(userID, new User(name, password, priority));
+	}
+	public int userVerify(String[] userInfo) {
+		String userID = userInfo[0], passwd = userInfo[1];
+		User user = userTable.get(new Integer(userID));
+		if (passwd.equals(user.password)) {
+			return user.priority;
+		}
+		return Flag.LoginError;
+	}
+	public void createOrder(int tableID) {
+		Date orderTime = new Date();
+		orderTable.put(orderID++, new Order(tableID, orderTime));
+	}
+	public void saveDayReport(float amount) {
+		Date day = new Date();
+		dayBillTable.put(day, new Bill(amount));
+	}
+	public void addDish(String name, float price) {
+		dishTable.put(name, new Dish(price));
+	}
+	public void noDish(String name) {
+		dishTable.get(name).isAvailble = false;
+	}
+	public void yesDish(String name) {
+		dishTable.get(name).isAvailble = true;
+	}
+	// 未完待续
+}
+/**
+ * 下面是基本的数据项
+ */
+class Dish implements Serializable{
+	float price;
+	boolean isAvailble = false;
+	public Dish(float price) {
+		this.price = price;
+	}
+}
+
+class Order implements Serializable {
+	int tableID;
+	Date orderTime;
+	float amount;
+	ArrayList<Dish> dishList = new ArrayList<Dish>();
+	ArrayList<Integer> leftDishLish = new ArrayList<Integer>();
+	public Order(int tableID, Date orderTime) {
+		this.tableID = tableID;
+		this.orderTime = orderTime;
+	}
+}
+
+class Bill implements Serializable {
+	float amount;
+	public Bill(float amount) {
+		this.amount = amount;
+	}
+}
+
+class User implements Serializable {
+	String name;
+	String password;
+	int priority;
+	public User(String name, String password, int priority) {
+		this.name = name;
+		this.password = password;
+		this.priority = priority;
+	}
+}

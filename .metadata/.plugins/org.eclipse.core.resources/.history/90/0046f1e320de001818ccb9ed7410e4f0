@@ -1,0 +1,10 @@
+package study;
+
+import java.util.Arrays;
+
+public class Study {
+	public static void main(String[] args) {
+		int[] array = new int[] {12,56,4,62,8};
+		System.out.println(Arrays.asList(array));
+	}
+}

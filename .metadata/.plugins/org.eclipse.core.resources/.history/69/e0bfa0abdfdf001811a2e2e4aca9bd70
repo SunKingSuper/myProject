@@ -1,0 +1,41 @@
+import java.io.*;
+import java.io.ObjectOutputStream;
+import java.util.Scanner;
+
+/**
+ * @author 一个有趣的人
+ * @author 3410322436@qq.com
+ */
+public class IO {
+	Scanner scan = new Scanner(System.in);
+	public String getInput() {
+		return scan.next();
+	}
+	public int getNum() {
+		return scan.nextInt();
+	}
+	public void writeData(Object data, String fileDir) {
+		try {
+			FileOutputStream fileOutput = new FileOutputStream(fileDir);
+			ObjectOutputStream out = new ObjectOutputStream(fileOutput);
+			out.writeObject(data);
+			out.close();
+			fileOutput.close();
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
+	}
+	public Object readData(String fileDir) {
+		try {
+			FileInputStream fileInput = new FileInputStream(fileDir);
+			ObjectInputStream in = new ObjectInputStream(fileInput);
+			Object data = (Object) in.readObject();
+			in.close();
+			fileInput.close();
+		}catch(IOException e) {
+			e.printStackTrace();
+		}catch(ClassNotFoundException c) {
+			c.printStackTrace();
+		}
+	}
+}
