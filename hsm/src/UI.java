@@ -6,7 +6,7 @@ import java.util.*;
  */
 public class UI {
 	private static String buffer = "";
-	private static int WIDTH = 20;
+	private static int WIDTH = 10;
 	private static String splitToken = "-".repeat(WIDTH) + "\n";
 	private static HashMap<Integer, String>choice = new HashMap<Integer, String>();
 	/**
@@ -31,14 +31,6 @@ public class UI {
 	 * UI的功能区
 	 */
 	public static void print() {
-		/*String msg = "";
-		for (int i = 0; i < buffer.length(); i++) {
-			if (i % WIDTH == 0 && buffer.charAt(i) == '\n') {
-				System.out.println(msg);
-				msg = "";
-			}
-			msg += buffer.charAt(i);
-		}*/
 		System.out.println(buffer);
 		buffer = "";
 	}
@@ -55,7 +47,7 @@ public class UI {
 		int i = start;
 		addSplitToken();
 		for(int j = 0, size = msg.size(); j < size ; j++) {
-			if (msg.get(j) == "退出系统") {
+			if (msg.get(j).equals("退出系统")) {
 				addOrderedItem(0, msg.get(j));
 			} else {
 				addOrderedItem(i++, msg.get(j));
@@ -134,7 +126,7 @@ public class UI {
 	private static void showRole(Set<String> roleInfo) {
 		ArrayList<String> menu = new ArrayList<String>();
 		menu.addAll(roleInfo);
-		orderedListShow(1, menu);
+		orderedListShow(0, menu);
 	}
 	public static String[] registerPage(Set<String> roleInfo) {
 		text("添加用户");
@@ -166,7 +158,7 @@ public class UI {
 	private static void showChoice() {
 		ArrayList<String> msg = new ArrayList<String>();
 		msg.addAll(choice.values());
-		orderedListShow(0, msg);
+		orderedListShow(1, msg);
 	}
 	public static Data addRolePage(Set<String> roleInfo) {
 		titleShow("新建用户权限");
@@ -289,7 +281,7 @@ public class UI {
 		data.stringArray = doneDish;
 		return data;
 	}
-	public Data addDishPage(Data data) {
+	public static Data addDishPage(Data data) {
 		titleShow("增加菜式");
 		text("已有菜式");
 		ArrayList<String> dishMenu = data.stringArray;

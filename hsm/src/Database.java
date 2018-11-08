@@ -129,7 +129,7 @@ public class Database implements Serializable {
 	public ArrayList<String> getDishMenu() {
 		ArrayList<String> menu = new ArrayList<String>();
 		for (String name:dishTable.keySet()) {
-			menu.add(String.format("%20s---%s", name, dishTable.get(name).toString()));
+			menu.add(String.format("%s---%s", name, dishTable.get(name).toString()));
 		}
 		return menu;
 	}
@@ -153,7 +153,7 @@ public class Database implements Serializable {
  */
 class Dish implements Serializable{
 	float price;
-	boolean isAvailble = false;
+	boolean isAvailble = true;
 	public Dish(float price) {
 		this.price = price;
 	}

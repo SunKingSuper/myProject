@@ -1,5 +1,8 @@
 import java.util.ArrayList;
 import java.util.Date;
+
+import com.sun.swing.internal.plaf.basic.resources.basic;
+
 import java.io.Serializable;
 
 public class Test {
@@ -22,10 +25,19 @@ public class Test {
 		A bclass = (A) IO.readData("test.db");
 		bclass.p();
 	}
+	public static void a() {
+		Database database = (Database) IO.readData("database.db");
+		b(database);
+	}
+	public static void b(Database database) {
+		while(true) {
+			if(IO.getInt() == -1) {
+				break;
+			}
+		}
+	}
 	public static void main(String[] args) {
-		Date date = new Date();
-		Date date2 = new Date();
-		System.out.println(date2);
+		a();
 	}
 }
 
