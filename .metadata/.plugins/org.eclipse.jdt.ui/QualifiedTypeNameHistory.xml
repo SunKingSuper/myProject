@@ -35,7 +35,6 @@
 <fullyQualifiedTypeName name="sun.security.jgss.LoginConfigImpl"/>
 <fullyQualifiedTypeName name="jdk.vm.ci.code.Register"/>
 <fullyQualifiedTypeName name="com.sun.beans.introspect.PropertyInfo.Name"/>
-<fullyQualifiedTypeName name="Database"/>
 <fullyQualifiedTypeName name="com.sun.org.apache.xml.internal.serializer.utils.MsgKey"/>
 <fullyQualifiedTypeName name="com.sun.java.swing.action.ExitAction"/>
 <fullyQualifiedTypeName name="com.sun.org.apache.xalan.internal.xsltc.compiler.util.ErrorMsg"/>
@@ -59,4 +58,6 @@
 <fullyQualifiedTypeName name="UI"/>
 <fullyQualifiedTypeName name="Data"/>
 <fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="com.sun.swing.internal.plaf.basic.resources.basic"/>
+<fullyQualifiedTypeName name="Database"/>
 </qualifiedTypeNameHistroy>

@@ -135,6 +135,7 @@ public class Database implements Serializable {
 	}
 	public void doneDish(int orderID, ArrayList<String> donedish) {
 		for(String done: donedish) {
+			done = done.split("---")[0];
 			int index = orderTable.get(orderID).dishList.indexOf(done);
 			index = orderTable.get(orderID).leftDishLish.indexOf(index);
 			orderTable.get(orderID).leftDishLish.remove(index);

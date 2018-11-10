@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.Date;
 
+import com.sun.jndi.toolkit.ctx.StringHeadTail;
+import com.sun.org.apache.bcel.internal.generic.NEW;
 import com.sun.swing.internal.plaf.basic.resources.basic;
 
 import java.io.Serializable;
@@ -25,19 +27,11 @@ public class Test {
 		A bclass = (A) IO.readData("test.db");
 		bclass.p();
 	}
-	public static void a() {
-		Database database = (Database) IO.readData("database.db");
-		b(database);
-	}
-	public static void b(Database database) {
-		while(true) {
-			if(IO.getInt() == -1) {
-				break;
-			}
-		}
-	}
 	public static void main(String[] args) {
-		a();
+		String a = "包子---1";
+		String[] bStrings = a.split("---");
+		System.out.println(bStrings[0]);
+		
 	}
 }
 
