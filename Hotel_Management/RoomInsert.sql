@@ -1,0 +1,36 @@
+INSERT INTO `KingSun_Hotel`.`room` (`idRoom`, `roomType`, `status`) VALUES (101, '豪华大床房', 1001);
+INSERT INTO `KingSun_Hotel`.`room` (`idRoom`, `roomType`, `status`) VALUES (102, '豪华双床房', 1001);
+INSERT INTO `KingSun_Hotel`.`room` (`idRoom`, `roomType`, `status`) VALUES (103, '豪华大床房', 1001);
+INSERT INTO `KingSun_Hotel`.`room` (`idRoom`, `roomType`, `status`) VALUES (104, '豪华双床房', 1001);
+INSERT INTO `KingSun_Hotel`.`room` (`idRoom`, `roomType`, `status`) VALUES (105, '豪华大床房', 1001);
+INSERT INTO `KingSun_Hotel`.`room` (`idRoom`, `roomType`, `status`) VALUES (106, '豪华双床房', 1001);
+INSERT INTO `KingSun_Hotel`.`room` (`idRoom`, `roomType`, `status`) VALUES (107, '豪华大床房', 1001);
+INSERT INTO `KingSun_Hotel`.`room` (`idRoom`, `roomType`, `status`) VALUES (108, '豪华双床房', 1001);
+INSERT INTO `KingSun_Hotel`.`room` (`idRoom`, `roomType`, `status`) VALUES (201, '豪华双床房', 1001);
+INSERT INTO `KingSun_Hotel`.`room` (`idRoom`, `roomType`, `status`) VALUES (202, '豪华大床房', 1001);
+INSERT INTO `KingSun_Hotel`.`room` (`idRoom`, `roomType`, `status`) VALUES (203, '豪华双床房', 1001);
+INSERT INTO `KingSun_Hotel`.`room` (`idRoom`, `roomType`, `status`) VALUES (204, '豪华大床房', 1001);
+INSERT INTO `KingSun_Hotel`.`room` (`idRoom`, `roomType`, `status`) VALUES (205, '豪华双床房', 1001);
+INSERT INTO `KingSun_Hotel`.`room` (`idRoom`, `roomType`, `status`) VALUES (206, '豪华大床房', 1001);
+INSERT INTO `KingSun_Hotel`.`room` (`idRoom`, `roomType`, `status`) VALUES (207, '豪华双床房', 1001);
+INSERT INTO `KingSun_Hotel`.`room` (`idRoom`, `roomType`, `status`) VALUES (208, '豪华大床房', 1001);
+INSERT INTO `KingSun_Hotel`.`room` (`idRoom`, `roomType`, `status`) VALUES (301, '豪华大床套房', 1001);
+INSERT INTO `KingSun_Hotel`.`room` (`idRoom`, `roomType`, `status`) VALUES (302, '超豪华大床房', 1001);
+INSERT INTO `KingSun_Hotel`.`room` (`idRoom`, `roomType`, `status`) VALUES (303, '豪华大床套房', 1001);
+INSERT INTO `KingSun_Hotel`.`room` (`idRoom`, `roomType`, `status`) VALUES (304, '超豪华大床房', 1001);
+INSERT INTO `KingSun_Hotel`.`room` (`idRoom`, `roomType`, `status`) VALUES (305, '豪华大床套房', 1001);
+INSERT INTO `KingSun_Hotel`.`room` (`idRoom`, `roomType`, `status`) VALUES (306, '超豪华大床房', 1001);
+INSERT INTO `KingSun_Hotel`.`room` (`idRoom`, `roomType`, `status`) VALUES (307, '豪华大床套房', 1001);
+INSERT INTO `KingSun_Hotel`.`room` (`idRoom`, `roomType`, `status`) VALUES (308, '超豪华大床房', 1001);
+INSERT INTO `KingSun_Hotel`.`room` (`idRoom`, `roomType`, `status`) VALUES (401, '超豪华双床房', 1001);
+INSERT INTO `KingSun_Hotel`.`room` (`idRoom`, `roomType`, `status`) VALUES (402, '超豪华套房', 1001);
+INSERT INTO `KingSun_Hotel`.`room` (`idRoom`, `roomType`, `status`) VALUES (403, '超豪华大床房', 1001);
+INSERT INTO `KingSun_Hotel`.`room` (`idRoom`, `roomType`, `status`) VALUES (404, '超豪华套房', 1001);
+INSERT INTO `KingSun_Hotel`.`room` (`idRoom`, `roomType`, `status`) VALUES (405, '超豪华大床房', 1001);
+INSERT INTO `KingSun_Hotel`.`room` (`idRoom`, `roomType`, `status`) VALUES (406, '超豪华套房', 1001);
+INSERT INTO `KingSun_Hotel`.`room` (`idRoom`, `roomType`, `status`) VALUES (407, '超豪华大床房', 1001);
+INSERT INTO `KingSun_Hotel`.`room` (`idRoom`, `roomType`, `status`) VALUES (408, '超豪华套房', 1001);
+INSERT INTO `KingSun_Hotel`.`room` (`idRoom`, `roomType`, `status`) VALUES (504, '行政房', 1001);
+INSERT INTO `KingSun_Hotel`.`room` (`idRoom`, `roomType`, `status`) VALUES (505, '行政房', 1001);
+
+

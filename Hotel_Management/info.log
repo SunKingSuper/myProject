@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-11-17T16:45:18</date>
+  <millis>1542444318760</millis>
+  <sequence>0</sequence>
+  <logger>runRecord</logger>
+  <level>INFO</level>
+  <class>Log.TheLog</class>
+  <method>info</method>
+  <thread>1</thread>
+  <message>连接数据系统...</message>
+</record>
+<record>
+  <date>2018-11-17T16:45:19</date>
+  <millis>1542444319230</millis>
+  <sequence>1</sequence>
+  <logger>runRecord</logger>
+  <level>INFO</level>
+  <class>Log.TheLog</class>
+  <method>info</method>
+  <thread>1</thread>
+  <message>statement对象实例化</message>
+</record>
+<record>
+  <date>2018-11-17T16:45:19</date>
+  <millis>1542444319261</millis>
+  <sequence>2</sequence>
+  <logger>runRecord</logger>
+  <level>INFO</level>
+  <class>Log.TheLog</class>
+  <method>info</method>
+  <thread>1</thread>
+  <message>连接结束</message>
+</record>
+</log>
