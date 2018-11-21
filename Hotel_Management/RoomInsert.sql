@@ -34,3 +34,8 @@ INSERT INTO `KingSun_Hotel`.`room` (`idRoom`, `roomType`, `status`) VALUES (504,
 INSERT INTO `KingSun_Hotel`.`room` (`idRoom`, `roomType`, `status`) VALUES (505, '行政房', 1001);
 
 
+INSERT INTO `KingSun_Hotel`.`User` (`idUser`, `password`) VALUES (1, '1');
+INSERT INTO `KingSun_Hotel`.`User` (`idUser`, `password`) VALUES (2, '2');
+INSERT INTO `KingSun_Hotel`.`User` (`idUser`, `password`) VALUES (3, '3');
+SELECT * FROM KingSun_Hotel.User;
+

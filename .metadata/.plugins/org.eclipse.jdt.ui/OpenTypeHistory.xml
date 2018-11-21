@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<typeInfoHistroy/>
+<typeInfoHistroy>
+<typeInfo handle="=Hotel_Management/src&lt;Model{Database.java[Database" modifiers="1" timestamp="1542711976295"/>
+<typeInfo handle="=Hotel_Management/src&lt;application{App.java[App" modifiers="1" timestamp="1542696476411"/>
+<typeInfo handle="=Hotel_Management/src&lt;Control{Core.java[Core" modifiers="1" timestamp="1542719466010"/>
+</typeInfoHistroy>

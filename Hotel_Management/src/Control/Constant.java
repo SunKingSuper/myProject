@@ -1,4 +1,4 @@
-package Model;
+package Control;
 
 final public class Constant {
 	public final static int ROOM_CODE = 1000;

@@ -7,7 +7,7 @@ import Log.TheLog;
  * 
  * @author KingSun
  * @version 1.0
- * 这个类是用来连接mysql的，然后每次执行一次sql就得重连一次mysql
+ * Core 将会是唯一持有database的类
  */
 public class Database {
 	private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
@@ -15,11 +15,12 @@ public class Database {
 	
 	private static final String USER = "Dev";
 	private static final String PASS = "Dev2018";
-	
-	public static ResultSet execute(String sql) {
-		Connection connection = null;
-		Statement statement = null;
-		ResultSet resultSet = null;
+	private Connection connection = null;
+	private Statement statement = null;
+	public Database() {
+		connect();
+	}
+	private void connect() {
 		try {
 			// 注册JDBC驱动
 			Class.forName(JDBC_DRIVER);
@@ -27,10 +28,7 @@ public class Database {
 			connection = DriverManager.getConnection(DB_URL, USER, PASS);
 			TheLog.info("statement对象实例化");
 			statement = connection.createStatement();
-			resultSet = statement.executeQuery(sql);			
-			// resultSet.close();
-			statement.close();
-			connection.close();
+			TheLog.info("数据库连接成功");
 		} catch (SQLException se) {
 			// TODO: 处理JDBC错误
 			TheLog.warn(se.toString());
@@ -39,25 +37,26 @@ public class Database {
 			// TODO: 处理 Class.forName 错误
 			TheLog.warn(e.toString());
 			e.printStackTrace();
-		} finally {
-			try {
-				if(statement != null) {
-					statement.close();
-				}
-			} catch (SQLException se2) {
-				// TODO: Nothing to do
-			}
-			try {
-				if (connection != null) {
-					connection.close();
-				}
-			} catch (SQLException e2) {
-				// TODO: handle exception
-				TheLog.warn(e2.toString());
-				e2.printStackTrace();
-			}
 		}
-		TheLog.info("连接结束");
+	}
+	public ResultSet execute(String sql) {
+		ResultSet resultSet = null;
+		try {
+			statement.executeQuery(sql);
+		} catch (Exception e) {
+			TheLog.warn(e.getLocalizedMessage());
+			e.printStackTrace();
+		}
 		return resultSet;
+	}
+	public void close() {
+		try {
+			statement.close();
+			connection.close();
+			TheLog.info("数据库已断开连接");
+		} catch (Exception e) {
+			TheLog.warn(e.getLocalizedMessage());
+			e.printStackTrace();
+		}
 	}
 }
