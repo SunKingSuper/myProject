@@ -1,1 +1,1 @@
-[[{"location":"/usr","type":"JRE","hints":{}},"ABSENT"],[{"location":"/usr/lib/jvm/jdk1.8.0_191/jre/lib/ext/jfxrt.jar","type":"JAR","hints":{}},"ABSENT"],[{"location":"/home/athena/eclipse-workspace/Hotel_Management","type":"PROJECT","hints":{"PROJECT_NAME":"Hotel_Management"}},"ABSENT"]]
+[[{"location":"/home/athena/eclipse-workspace/Hotel_Management","type":"PROJECT","hints":{"PROJECT_NAME":"Hotel_Management"}},"ABSENT"],[{"location":"/usr","type":"JRE","hints":{}},"ABSENT"]]

@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <typeInfoHistroy>
-<typeInfo handle="=Hotel_Management/src&lt;Model{Database.java[Database" modifiers="1" timestamp="1542711976295"/>
-<typeInfo handle="=Hotel_Management/src&lt;application{App.java[App" modifiers="1" timestamp="1542696476411"/>
-<typeInfo handle="=Hotel_Management/src&lt;Control{Core.java[Core" modifiers="1" timestamp="1542719466010"/>
+<typeInfo handle="=Hotel_Management/src&lt;application{App.java[App" modifiers="1" timestamp="1542776389911"/>
+<typeInfo handle="=Hotel_Management/src&lt;model{JdbcUtils.java[JdbcUtils" modifiers="1" timestamp="1542883000959"/>
+<typeInfo handle="=Hotel_Management/src&lt;model.domain{User.java[User" modifiers="1" timestamp="1542881469694"/>
+<typeInfo handle="=Hotel_Management/src&lt;application{LoginStage.java[LoginStage" modifiers="1" timestamp="1542880615219"/>
+<typeInfo handle="=Hotel_Management/src&lt;control{Core.java[Core" modifiers="1" timestamp="1542880217879"/>
+<typeInfo handle="=Hotel_Management/\/usr\/lib\/jvm\/jdk1.8.0_191\/jre\/lib\/ext\/jfxrt.jar&lt;com.sun.javafx.application(LauncherImpl.class[LauncherImpl" modifiers="1" timestamp="1536738524000"/>
+<typeInfo handle="=Hotel_Management/src&lt;model{JdbcTemplate.java[JdbcTemplate" modifiers="1" timestamp="1542884436204"/>
+<typeInfo handle="=Hotel_Management/src&lt;model.Dao{MyResultSetHandle.java[MyResultSetHandle" modifiers="513" timestamp="1542884117985"/>
+<typeInfo handle="=Hotel_Management/src&lt;model.Dao.Impl{UserImpl.java[UserResultSetHandler" modifiers="0" timestamp="1542884422773"/>
 </typeInfoHistroy>

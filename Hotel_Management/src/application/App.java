@@ -1,6 +1,6 @@
 package application;
 
-import Control.Core;
+import control.Core;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.stage.Stage;

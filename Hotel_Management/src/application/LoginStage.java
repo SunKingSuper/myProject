@@ -26,6 +26,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
+import model.domain.User;
 
 public class LoginStage extends myStage {
 	TextField userID = new TextField();
@@ -112,7 +113,10 @@ public class LoginStage extends myStage {
 		root = mainroot;
 	}
 	private void login() {
-		if(platform.core.login(userID.getText(), password.getText())) {
+		User user = new User();
+		user.setidUser(Integer.parseInt(userID.getText()));
+		user.setpassword(password.getText());
+		if(platform.core.login(user)) {
 			new MainStage(platform);
 			stage.close();
 		} else {

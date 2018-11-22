@@ -38,4 +38,3 @@ INSERT INTO `KingSun_Hotel`.`User` (`idUser`, `password`) VALUES (1, '1');
 INSERT INTO `KingSun_Hotel`.`User` (`idUser`, `password`) VALUES (2, '2');
 INSERT INTO `KingSun_Hotel`.`User` (`idUser`, `password`) VALUES (3, '3');
 SELECT * FROM KingSun_Hotel.User;
-
