@@ -26,9 +26,9 @@ public class UserDaoImpl implements UserDAO {
 	}
 
 	@Override
-	public void update(Long idUser, User newUser) {
+	public void update(User newUser) {
 		JdbcTemplate.update("UPDATE User SET password = ?, lastLogin = ?, lastLogout = ? WHERE (idUser = ?)",
-				newUser.getpassword(), newUser.getlastLogin(), newUser.getlastLogout(), idUser);
+				newUser.getpassword(), newUser.getlastLogin(), newUser.getlastLogout(), newUser.getidUser());
 		TheLog.info("update user");
 	}
 

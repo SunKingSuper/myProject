@@ -8,7 +8,7 @@ import model.domain.User;
 public interface UserDAO {
 	void save(User user);
 	void delete(Long idUser);
-	void update(Long id, User newUser);
+	void update(User newUser);
 	User get(Long idUser);
 	List<User> listAll();
 }

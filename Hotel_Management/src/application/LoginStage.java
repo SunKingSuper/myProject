@@ -2,6 +2,8 @@ package application;
 
 import java.util.function.UnaryOperator;
 
+import application.toolkit.NumberFiled;
+import control.Core;
 import javafx.animation.FadeTransition;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -28,42 +30,28 @@ import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import model.domain.User;
 
-public class LoginStage extends myStage {
-	TextField userID = new TextField();
+public class LoginStage extends MyStage {
+	NumberFiled userID = new NumberFiled();
 	PasswordField password = new PasswordField();
 	Label loginError = new Label(Constant.LoginError);
 	VBox mainroot;
+
 	public LoginStage(App platform) {
 		ui(platform);
 	}
+
 	@Override
 	protected void init() {
-		Tooltip tooltip = new Tooltip(Constant.LoginTip);
-		tooltip.setFont(new Font(20));
-		userID.setTooltip(tooltip);
-		userID.setPromptText(Constant.LoginTip);				//由于第一个就选中了这个文本框，感觉好鸡肋
-		userID.setTextFormatter(new TextFormatter<String>(new UnaryOperator<Change>() {
-
-			@Override
-			public Change apply(Change t) {
-				//System.out.println(t.getText().getBytes());
-				if (t.getText().matches("[0-9]*")) {
-					return t;
-				}
-				return null;
-			}
-			
-		}));
 		userID.textProperty().addListener(new ChangeListener<String>() {
 
 			@Override
 			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-				if(loginError.isVisible()) {
+				if (loginError.isVisible()) {
 					loginError.setVisible(false);
 				}
 			}
 		});
-		
+
 		Button loginbtn = new Button("登陆");
 		Button cancelbtn = new Button("取消");
 		loginbtn.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<Event>() {
@@ -78,11 +66,11 @@ public class LoginStage extends myStage {
 				platform.exit();
 			}
 		});
-		
+
 		ImageView logo = new ImageView(new Image(Constant.LOGO));
 		Text name = new Text(Constant.NAME);
 		name.setFont(new Font(20));
-		//表单布局
+		// 表单布局
 		Label id = new Label("员工号");
 		Label psd = new Label("   密码");
 		GridPane form = new GridPane();
@@ -97,12 +85,12 @@ public class LoginStage extends myStage {
 		form.setMargin(loginbtn, new Insets(5, 0, 0, 130));
 		form.setMargin(cancelbtn, new Insets(5, 0, 0, 0));
 		form.setAlignment(Pos.CENTER_LEFT);
-		form.setPadding(new Insets(30,30,0,30));
+		form.setPadding(new Insets(30, 30, 0, 30));
 		loginError.setStyle("-fx-background-color:#F5B7B1");
 		loginError.setTextFill(Paint.valueOf("red"));
 		loginError.setPadding(new Insets(10));
 		loginError.setVisible(false);
-		
+
 		mainroot = new VBox();
 		mainroot.getChildren().addAll(logo, name, form, loginError);
 		mainroot.alignmentProperty().set(Pos.CENTER);
@@ -112,11 +100,12 @@ public class LoginStage extends myStage {
 		stage.initStyle(StageStyle.UNDECORATED);
 		root = mainroot;
 	}
+
 	private void login() {
 		User user = new User();
 		user.setidUser(Integer.parseInt(userID.getText()));
 		user.setpassword(password.getText());
-		if(platform.core.login(user)) {
+		if (Core.login(user)) {
 			new MainStage(platform);
 			stage.close();
 		} else {

@@ -1,6 +1,10 @@
 package model;
+/**
+ * @author SKS
+ * 在这里我们使用了alibaba的Druid连接池来管理与数据库的连接
+ * 连接池不用手动关闭，已经在框架里的destory方法里写好关闭连接池的步骤
+ */
 
-import java.security.spec.DSAGenParameterSpec;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
