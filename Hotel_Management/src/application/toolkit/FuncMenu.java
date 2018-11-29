@@ -33,7 +33,7 @@ public class FuncMenu extends VBox {
 		Button register = new Button(Constant.MenuRegister);
 		Button leave = new Button(Constant.MenuLeave);
 		Button show = new Button(Constant.MenuShow);
-		Button exit = new ExitButton();
+		Button exit = new ExitButton(platform);
 
 		book.setOnMouseClicked(new EventHandler<Event>() {
 
@@ -63,7 +63,7 @@ public class FuncMenu extends VBox {
 
 			@Override
 			public void handle(Event event) {
-				new Authentication(platform);
+				new Authentication(platform, new PermissShow(platform));
 				if (Core.getPermission()) {
 					new ShowStage(platform);
 				}
@@ -79,4 +79,15 @@ public class FuncMenu extends VBox {
 		setPrefWidth(primaryScreenBound.getWidth() / 5);
 	}
 
+}
+
+class PermissShow extends Permiss {
+	public PermissShow(App platform) {
+		this.platform = platform;
+	}
+	@Override
+	public void open() {
+		new ShowStage(platform);
+	}
+	
 }

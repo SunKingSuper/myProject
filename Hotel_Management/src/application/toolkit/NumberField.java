@@ -9,8 +9,8 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.control.TextFormatter.Change;
 import javafx.scene.text.Font;
 
-public class NumberFiled extends TextField {
-	public NumberFiled(){
+public class NumberField extends TextField {
+	public NumberField(){
 		super();
 		Tooltip tooltip = new Tooltip(Constant.LoginTip);
 		tooltip.setFont(new Font(16));

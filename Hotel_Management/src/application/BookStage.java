@@ -35,6 +35,7 @@ public class BookStage extends MyStage {
 	public BookStage(App platform) {
 		check();
 		ui(platform);
+		setTitle(Constant.MenuBook);
 	}
 
 	private void check() {

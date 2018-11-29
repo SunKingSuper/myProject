@@ -24,15 +24,15 @@ public class App extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		TheLog.info("App启动");
-//		new LoginStage(this);
+		new LoginStage(this);
 //		new MainStage(this);
 //		new BookStage(this);
-		new ShowStage(this);
+//		new ShowStage(this);
 	}
 
 	public void exit() {
-		System.out.println("A");
 		timer.cancel();
+		Core.logout();
 		TheLog.info("程序退出成功");
 		Platform.exit();
 	}

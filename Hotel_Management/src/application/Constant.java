@@ -48,6 +48,7 @@ final public class Constant {
 	public static final String Purple = "#993399";
 	public static final String Yellow = "#ffff00";
 	public static final String BackgroundBlue = "#6699cc";
+	public static final String BackgroundRed = "#F5B7B1";
 	
 	//imageResource
 	public static final String LogoImgUrl = "Resource/hotel.png";

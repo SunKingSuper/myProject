@@ -3,7 +3,7 @@ package application;
 import java.util.function.UnaryOperator;
 
 import application.toolkit.ExitButton;
-import application.toolkit.NumberFiled;
+import application.toolkit.NumberField;
 import control.Core;
 import javafx.animation.FadeTransition;
 import javafx.beans.value.ChangeListener;
@@ -32,7 +32,7 @@ import javafx.util.Duration;
 import model.domain.User;
 
 public class LoginStage extends MyStage {
-	NumberFiled userID = new NumberFiled();
+	NumberField userID = new NumberField();
 	PasswordField password = new PasswordField();
 	Label loginError = new Label(Constant.LoginError);
 	VBox mainroot;
@@ -54,7 +54,7 @@ public class LoginStage extends MyStage {
 		});
 
 		Button loginbtn = new Button("登陆");
-		Button cancelbtn = new ExitButton();
+		Button cancelbtn = new ExitButton(platform);
 		cancelbtn.setText("取消");
 		loginbtn.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<Event>() {
 			@Override
@@ -82,7 +82,7 @@ public class LoginStage extends MyStage {
 		form.setMargin(cancelbtn, new Insets(5, 0, 0, 0));
 		form.setAlignment(Pos.CENTER_LEFT);
 		form.setPadding(new Insets(30, 30, 0, 30));
-		loginError.setStyle("-fx-background-color:#F5B7B1");
+		loginError.setStyle("-fx-background-color:" + Constant.BackgroundRed);
 		loginError.setTextFill(Paint.valueOf("red"));
 		loginError.setPadding(new Insets(10));
 		loginError.setVisible(false);

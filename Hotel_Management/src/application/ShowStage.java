@@ -2,9 +2,8 @@ package application;
 
 import java.util.Iterator;
 import java.util.List;
-
 import application.toolkit.CancelButton;
-import application.toolkit.NumberFiled;
+import application.toolkit.NumberField;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.Event;
@@ -21,7 +20,7 @@ import javafx.scene.layout.GridPane;
 import model.domain.Order;
 
 public class ShowStage extends MyStage {
-	TableView tableView;
+	TableView tableView = new TableView();
 
 	public ShowStage(App platform) {
 		ui(platform);
@@ -30,9 +29,8 @@ public class ShowStage extends MyStage {
 	@Override
 	protected void init() {
 		Label query = new Label(Constant.QueryShow);
-		TextField queryShow = new NumberFiled();
+		TextField queryShow = new NumberField();
 		ScrollPane orderShow = new ScrollPane();
-		tableView = new TableView();
 		orderShow.setContent(tableView);
 		RadioButton showAll = new RadioButton(Constant.OrderShow);
 		Button cancel = new CancelButton(this);

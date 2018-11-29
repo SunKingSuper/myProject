@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
+import Log.TheLog;
 import application.Authentication;
 import model.Dao.GuestDao;
 import model.Dao.RoomDao;
@@ -36,6 +37,12 @@ public class Core {
 			return true;
 		}
 		return false;
+	}
+	
+	public static void logout() {
+		employee.setlastLogout(new Timestamp(new Date().getTime()));
+		userDAO.update(employee);
+		TheLog.info("用户注销");
 	}
 	
 	public static List<RoomType> roomTypes() {
