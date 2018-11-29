@@ -8,34 +8,37 @@ import java.util.TimerTask;
 import application.App;
 import application.Constant;
 import javafx.geometry.Rectangle2D;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.layout.FlowPane;
 import javafx.stage.Screen;
 
-public class Monitor extends FlowPane {
+public class Monitor extends ScrollPane {
 	private App platform;
-	public HashMap<Integer, Image> statusImage = new HashMap<>();
+	public HashMap<Long, Image> statusImage = new HashMap<>();
+	public FlowPane flowPane;
 
 	public Monitor(App platform) {
 		super();
 		this.platform = platform;
-		statusImage.put(Constant.FREE, new Image("Resource/homeGreen.png"));
-		statusImage.put(Constant.BOOKED, new Image("Resource/homePurple.png"));
-		statusImage.put(Constant.REGISTERED, new Image("Resource/homeBlue.png"));
-		statusImage.put(Constant.CLEANNING, new Image("Resource/homeYellow.png"));
+		statusImage.put(Constant.FREE, new Image(Constant.RoomFreeImgUrl));
+		statusImage.put(Constant.BOOKED, new Image(Constant.RoomBookedImgUrl));
+		statusImage.put(Constant.REGISTED, new Image(Constant.RoomRegistedImgUrl));
+		statusImage.put(Constant.CLEANNING, new Image(Constant.RoomCleanningImgUrl));
 		init();
 	}
 
 	private void init() {
+		flowPane = new FlowPane();
 		for(int i = 0; i<100;i++) {
 			RoomView roomView = new RoomView();
-			getChildren().add(roomView);
+			flowPane.getChildren().add(roomView);
 		}
-		
-		setHgap(10);
-		setVgap(10);
+		setContent(flowPane);
+		setFitToWidth(true);
 		Rectangle2D primaryScreenBound = Screen.getPrimary().getVisualBounds();
 		setPrefSize(primaryScreenBound.getWidth() *4/5, primaryScreenBound.getHeight() *3/4);
+		setMaxSize(primaryScreenBound.getWidth() *4/5, primaryScreenBound.getHeight() *3/4);
 	}
 	private void refresh() {
 		

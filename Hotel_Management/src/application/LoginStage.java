@@ -2,6 +2,7 @@ package application;
 
 import java.util.function.UnaryOperator;
 
+import application.toolkit.ExitButton;
 import application.toolkit.NumberFiled;
 import control.Core;
 import javafx.animation.FadeTransition;
@@ -53,17 +54,12 @@ public class LoginStage extends MyStage {
 		});
 
 		Button loginbtn = new Button("登陆");
-		Button cancelbtn = new Button("取消");
+		Button cancelbtn = new ExitButton();
+		cancelbtn.setText("取消");
 		loginbtn.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<Event>() {
 			@Override
 			public void handle(Event event) {
 				login();
-			}
-		});
-		cancelbtn.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<Event>() {
-			@Override
-			public void handle(Event event) {
-				platform.exit();
 			}
 		});
 
@@ -95,9 +91,9 @@ public class LoginStage extends MyStage {
 		mainroot.getChildren().addAll(logo, name, form, loginError);
 		mainroot.alignmentProperty().set(Pos.CENTER);
 		VBox.setMargin(logo, new Insets(0, 0, 5, 0));
-		stage.setWidth(300);
-		stage.setHeight(400);
-		stage.initStyle(StageStyle.UNDECORATED);
+		setWidth(300);
+		setHeight(400);
+		initStyle(StageStyle.UNDECORATED);
 		root = mainroot;
 	}
 
@@ -106,8 +102,8 @@ public class LoginStage extends MyStage {
 		user.setidUser(Integer.parseInt(userID.getText()));
 		user.setpassword(password.getText());
 		if (Core.login(user)) {
+			close();
 			new MainStage(platform);
-			stage.close();
 		} else {
 			loginError.setVisible(true);
 			FadeTransition fadeTransition = new FadeTransition();

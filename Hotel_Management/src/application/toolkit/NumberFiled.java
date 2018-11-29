@@ -15,7 +15,7 @@ public class NumberFiled extends TextField {
 		Tooltip tooltip = new Tooltip(Constant.LoginTip);
 		tooltip.setFont(new Font(16));
 		setTooltip(tooltip);
-		setText(Constant.LoginTip);
+		setPromptText(Constant.LoginTip);
 		setTextFormatter(new TextFormatter<String>(new UnaryOperator<Change>() {
 
 			@Override

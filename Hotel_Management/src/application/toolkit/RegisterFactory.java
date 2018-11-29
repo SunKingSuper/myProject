@@ -10,25 +10,25 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 
 public class RegisterFactory {
-	private static int id = 0;
+	private static int index = 0;
 	public RegisterGui create(FlowPane parent) {
-		id++;
-		return new RegisterGui(id, parent);
+		return new RegisterGui(index++, parent);
 	}
 	
 }
 
 class RegisterGui extends GridPane {
-	private int id;
+	private int index;
 	private Node parent;
 	public RegisterGui(int id, FlowPane parent) {
 		this.parent = parent;
-		this.id = id;
+		this.index = index;
 		Label name = new Label("入住人" + id);
 		Label registerName = new Label("入住人姓名");
 		TextField registerNameT = new TextField();
@@ -36,13 +36,15 @@ class RegisterGui extends GridPane {
 		TextField idCardT = new TextField();
 		
 		Button minus = new Button();
-		1/0; //为minus按钮加上图标
+		ImageView imageView = new ImageView(new Image("Resource/minus.png"));
+		imageView.resize(50, 50);
+		minus.setGraphic(imageView);
 		
 		minus.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<Event>() {
 
 			@Override
 			public void handle(Event event) {
-				parent.getChildren().remove(id);
+				parent.getChildren().remove(index);
 			}
 		});
 		

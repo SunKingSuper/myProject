@@ -42,8 +42,8 @@ public class GuestDaoImpl implements GuestDao {
 
 	@Override
 	public List<Guest> listAll() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Guest> list = JdbcTemplate.query("SELECT * FROM User WHERE (idUser = ?)", new GuestResultSetHandler());
+		return list;
 	}
 
 }

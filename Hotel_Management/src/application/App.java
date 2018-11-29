@@ -25,7 +25,9 @@ public class App extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		TheLog.info("App启动");
 //		new LoginStage(this);
-		new BookStage(this);
+//		new MainStage(this);
+//		new BookStage(this);
+		new ShowStage(this);
 	}
 
 	public void exit() {

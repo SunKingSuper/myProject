@@ -32,8 +32,8 @@ public class MainStage extends MyStage {
 		mainroot.setCenter(centerLayout);
 		mainroot.setRight(funcmenu);
 
-		stage.initStyle(StageStyle.UNDECORATED);
-		stage.setFullScreen(true);
+		initStyle(StageStyle.UNDECORATED);
+		setFullScreen(true);
 		root = mainroot;
 
 		platform.timer.schedule(new TimerTask() {
