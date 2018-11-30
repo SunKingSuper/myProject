@@ -8,4 +8,5 @@ public interface RoomDao {
 	void update(Room newroom);
 	Room get(Long idRoom);
 	List<Room> listAll();
+	List<Room> listCleanning();
 }

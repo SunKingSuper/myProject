@@ -14,8 +14,8 @@ public class UserDaoImpl implements UserDAO {
 
 	@Override
 	public void save(User user) {
-		JdbcTemplate.update("INSERT INTO User VALUES (?, ?, ?, ?)", user.getidUser(), user.getpassword(),
-				user.getlastLogin(), user.getlastLogout());
+		JdbcTemplate.update("INSERT INTO User VALUES (?, ?, ?, ?, ?)", user.getidUser(), user.getpassword(),
+				user.getlastLogin(), user.getlastLogout(), user.getrole());
 		TheLog.info("save user");
 	}
 
@@ -27,8 +27,8 @@ public class UserDaoImpl implements UserDAO {
 
 	@Override
 	public void update(User newUser) {
-		JdbcTemplate.update("UPDATE User SET password = ?, lastLogin = ?, lastLogout = ? WHERE (idUser = ?)",
-				newUser.getpassword(), newUser.getlastLogin(), newUser.getlastLogout(), newUser.getidUser());
+		JdbcTemplate.update("UPDATE User SET password = ?, lastLogin = ?, lastLogout = ?, role = ? WHERE (idUser = ?)",
+				newUser.getpassword(), newUser.getlastLogin(), newUser.getlastLogout(), newUser.getrole(), newUser.getidUser());
 		TheLog.info("update user");
 	}
 
@@ -57,6 +57,7 @@ class UserResultSetHandler implements MyResultSetHandle {
 			user.setpassword(resultSet.getString("password"));
 			user.setlastLogin(resultSet.getTimestamp("lastLogin"));
 			user.setlastLogout(resultSet.getTimestamp("lastLogout"));
+			user.setrole(resultSet.getString("role"));
 			resultlist.add(user);
 		}
 		return resultlist;

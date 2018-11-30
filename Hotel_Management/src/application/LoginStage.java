@@ -103,7 +103,11 @@ public class LoginStage extends MyStage {
 		user.setpassword(password.getText());
 		if (Core.login(user)) {
 			close();
-			new MainStage(platform);
+			if (Core.getrole().equals("server")) {
+				new MainStage(platform);
+			} else {
+				new CleanerStage(platform);
+			}
 		} else {
 			loginError.setVisible(true);
 			FadeTransition fadeTransition = new FadeTransition();

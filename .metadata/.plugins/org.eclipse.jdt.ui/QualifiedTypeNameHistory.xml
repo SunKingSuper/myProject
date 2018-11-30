@@ -1,21 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="application.MainStage"/>
-<fullyQualifiedTypeName name="java.sql.Date"/>
-<fullyQualifiedTypeName name="model.Dao.OrderDao"/>
-<fullyQualifiedTypeName name="java.util.HashMap"/>
-<fullyQualifiedTypeName name="sun.security.action.PutAllAction"/>
-<fullyQualifiedTypeName name="model.Dao.Impl.OrderResultSetHandler"/>
-<fullyQualifiedTypeName name="model.domain.OrderDetail"/>
-<fullyQualifiedTypeName name="model.Dao.OrderDetailDao"/>
-<fullyQualifiedTypeName name="model.JdbcTemplate"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="java.sql.ResultSet"/>
-<fullyQualifiedTypeName name="model.domain.OrderRoom"/>
-<fullyQualifiedTypeName name="javafx.scene.control.ScrollPane"/>
-<fullyQualifiedTypeName name="model.domain.Order"/>
-<fullyQualifiedTypeName name="javafx.scene.control.TableView"/>
-<fullyQualifiedTypeName name="javafx.event.EventHandler"/>
 <fullyQualifiedTypeName name="javafx.scene.input.MouseEvent"/>
 <fullyQualifiedTypeName name="javafx.scene.Parent"/>
 <fullyQualifiedTypeName name="com.sun.media.jfxmediaimpl.platform.Platform"/>
@@ -29,8 +13,6 @@
 <fullyQualifiedTypeName name="javax.swing.event.ChangeEvent"/>
 <fullyQualifiedTypeName name="javafx.event.Event"/>
 <fullyQualifiedTypeName name="javafx.scene.control.Toggle"/>
-<fullyQualifiedTypeName name="java.util.List"/>
-<fullyQualifiedTypeName name="java.util.Iterator"/>
 <fullyQualifiedTypeName name="javafx.scene.control.TableColumn"/>
 <fullyQualifiedTypeName name="application.MyStage"/>
 <fullyQualifiedTypeName name="com.mysql.cj.x.protobuf.MysqlxExpect.Open"/>
@@ -38,7 +20,6 @@
 <fullyQualifiedTypeName name="application.ShowStage"/>
 <fullyQualifiedTypeName name="application.toolkit.PermissShow"/>
 <fullyQualifiedTypeName name="application.App"/>
-<fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="sun.swing.UIAction"/>
 <fullyQualifiedTypeName name="javafx.scene.Node"/>
 <fullyQualifiedTypeName name="com.sun.xml.internal.ws.policy.privateutil.PolicyUtils.Text"/>
@@ -46,10 +27,7 @@
 <fullyQualifiedTypeName name="application.toolkit.TitleInputField"/>
 <fullyQualifiedTypeName name="javafx.scene.control.TextArea"/>
 <fullyQualifiedTypeName name="application.toolkit.NumberField"/>
-<fullyQualifiedTypeName name="javafx.stage.Stage"/>
 <fullyQualifiedTypeName name="Log.TheLog"/>
-<fullyQualifiedTypeName name="control.Core"/>
-<fullyQualifiedTypeName name="javafx.scene.control.Label"/>
 <fullyQualifiedTypeName name="javafx.beans.value.ChangeListener"/>
 <fullyQualifiedTypeName name="javafx.scene.control.PasswordField"/>
 <fullyQualifiedTypeName name="javafx.scene.layout.GridPane"/>
@@ -57,7 +35,29 @@
 <fullyQualifiedTypeName name="application.Authentication"/>
 <fullyQualifiedTypeName name="javafx.scene.paint.Paint"/>
 <fullyQualifiedTypeName name="javafx.scene.layout.VBox"/>
-<fullyQualifiedTypeName name="javafx.scene.layout.HBox"/>
+<fullyQualifiedTypeName name="application.CleanerStage.RoomLabel"/>
+<fullyQualifiedTypeName name="com.alibaba.druid.pool.DruidDataSource.CreateConnectionTask"/>
+<fullyQualifiedTypeName name="model.domain.Room"/>
+<fullyQualifiedTypeName name="javafx.scene.image.Image"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="application.toolkit.RoomView"/>
+<fullyQualifiedTypeName name="control.Core"/>
+<fullyQualifiedTypeName name="java.util.Iterator"/>
+<fullyQualifiedTypeName name="com.sun.corba.se.impl.orbutil.closure.Constant"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="java.lang.Long"/>
+<fullyQualifiedTypeName name="com.alibaba.druid.sql.ast.statement.SQLIfStatement.ElseIf"/>
+<fullyQualifiedTypeName name="com.alibaba.druid.support.logging.Log"/>
+<fullyQualifiedTypeName name="application.WarnDialog"/>
+<fullyQualifiedTypeName name="java.sql.Date"/>
+<fullyQualifiedTypeName name="javafx.scene.control.Label"/>
 <fullyQualifiedTypeName name="javafx.geometry.Pos"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="javafx.geometry.Insets"/>
+<fullyQualifiedTypeName name="javafx.application.Application"/>
+<fullyQualifiedTypeName name="javafx.scene.Scene"/>
+<fullyQualifiedTypeName name="javafx.scene.layout.HBox"/>
+<fullyQualifiedTypeName name="javafx.stage.Stage"/>
+<fullyQualifiedTypeName name="javafx.scene.image.ImageView"/>
+<fullyQualifiedTypeName name="com.sun.swing.internal.plaf.metal.resources.metal_zh_TW"/>
 </qualifiedTypeNameHistroy>

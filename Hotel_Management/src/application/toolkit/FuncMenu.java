@@ -1,6 +1,5 @@
 package application.toolkit;
 
-import Log.TheLog;
 import application.App;
 import application.Authentication;
 import application.BookStage;
@@ -8,14 +7,11 @@ import application.Constant;
 import application.LeaveStage;
 import application.RegisterStage;
 import application.ShowStage;
-import control.Core;
-import javafx.application.Platform;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.control.Button;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Screen;
 
@@ -39,7 +35,7 @@ public class FuncMenu extends VBox {
 
 			@Override
 			public void handle(Event event) {
-				new BookStage(platform);
+				new Authentication(platform, new PermissBook(platform));
 			}
 		});
 
@@ -47,15 +43,15 @@ public class FuncMenu extends VBox {
 
 			@Override
 			public void handle(Event event) {
-				new RegisterStage(platform);
-			}
+				new Authentication(platform, new PermissRegister(platform));
+				}
 		});
 
 		leave.setOnMouseClicked(new EventHandler<Event>() {
 
 			@Override
 			public void handle(Event event) {
-				new LeaveStage(platform);
+				new Authentication(platform, new PermissLeave(platform));
 			}
 		});
 
@@ -64,9 +60,6 @@ public class FuncMenu extends VBox {
 			@Override
 			public void handle(Event event) {
 				new Authentication(platform, new PermissShow(platform));
-				if (Core.getPermission()) {
-					new ShowStage(platform);
-				}
 			}
 		});
 
@@ -79,6 +72,39 @@ public class FuncMenu extends VBox {
 		setPrefWidth(primaryScreenBound.getWidth() / 5);
 	}
 
+}
+
+class PermissLeave extends Permiss {
+	public PermissLeave(App platform) {
+		this.platform = platform;
+	}
+	@Override
+	public void open() {
+		new LeaveStage(platform);
+	}
+	
+}
+
+class PermissBook extends Permiss {
+	public PermissBook(App platform) {
+		this.platform = platform;
+	}
+	@Override
+	public void open() {
+		new BookStage(platform);
+	}
+	
+}
+
+class PermissRegister extends Permiss {
+	public PermissRegister(App platform) {
+		this.platform = platform;
+	}
+	@Override
+	public void open() {
+		new RegisterStage(platform);
+	}
+	
 }
 
 class PermissShow extends Permiss {

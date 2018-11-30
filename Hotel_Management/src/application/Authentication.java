@@ -1,5 +1,6 @@
 package application;
 
+import Log.TheLog;
 import application.toolkit.Permiss;
 import control.Core;
 import javafx.beans.value.ChangeListener;
@@ -42,11 +43,13 @@ public class Authentication extends MyStage {
 			public void handle(MouseEvent event) {
 				if (Core.authentication(psd.getText())) {
 					Core.givePermission(self);
+					TheLog.info("授权成功");
 					close();
 					permissStage.getPermiss(); // 这里曲折实现了权限管理
 				} else {
 					loginError.setVisible(true);
 					mainroot.getChildren().add(loginError);
+					TheLog.info("密码错误，授权失败");
 				}
 			}
 		});

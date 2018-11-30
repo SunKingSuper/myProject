@@ -3,7 +3,7 @@ package application;
 import java.util.Iterator;
 import java.util.List;
 
-import application.toolkit.NumberFiled;
+import application.toolkit.NumberField;
 import control.Core;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -70,7 +70,7 @@ public class BookStage extends MyStage {
 		});
 
 		Label bookerPhone = new Label("电话号码");
-		NumberFiled bookerPhoneT = new NumberFiled();
+		NumberField bookerPhoneT = new NumberField();
 
 		HBox registerBox = new HBox();
 		registerBox.setAlignment(Pos.CENTER);

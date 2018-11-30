@@ -1,22 +1,13 @@
 package control;
 
+import application.*;
 import java.sql.Timestamp;
+import model.domain.*;
 import java.util.Date;
 import java.util.List;
-
 import Log.TheLog;
-import application.Authentication;
-import model.Dao.GuestDao;
-import model.Dao.RoomDao;
-import model.Dao.RoomTypeDao;
-import model.Dao.UserDAO;
-import model.Dao.Impl.GuestDaoImpl;
-import model.Dao.Impl.RoomDaoImpl;
-import model.Dao.Impl.RoomTypeDaoImpl;
-import model.Dao.Impl.UserDaoImpl;
-import model.domain.Guest;
-import model.domain.RoomType;
-import model.domain.User;
+import model.Dao.*;
+import model.Dao.Impl.*;
 
 public class Core {
 	static User employee = new User();
@@ -24,6 +15,7 @@ public class Core {
 	private static UserDAO userDAO = new UserDaoImpl();
 	private static RoomTypeDao roomTypeDao = new RoomTypeDaoImpl();
 	private static RoomDao roomDao = new RoomDaoImpl();
+	private static OrderDao orderDao = new OrderDaoImpl();
 	private static boolean permission = false;
 
 	public static boolean login(User user) {
@@ -37,6 +29,10 @@ public class Core {
 			return true;
 		}
 		return false;
+	}
+	
+	public static String getrole() {
+		return employee.getrole();
 	}
 	
 	public static void logout() {
@@ -60,7 +56,6 @@ public class Core {
 	public static void givePermission(Authentication stage) {
 		if(stage.kind) {
 			permission = true;
-			System.out.println("Permission");
 		}
 	}
 	
@@ -70,5 +65,30 @@ public class Core {
 			return true;
 		}
 		return permission;
+	}
+	
+	public static Order searchidRoom(long idRoom) {
+		return orderDao.getByidRoom(idRoom);
+	}
+	
+	public static void leaveHandle(Long idRoom, Order order) {
+		Room room = roomDao.get(idRoom);
+		room.setstatus(Constant.CLEANNING);
+		order.setleftDate(new Timestamp(new Date().getTime()));
+		order.setstatus(Constant.oDONE);
+		orderDao.update(order);
+	}
+	
+	public static void roomIsReady(Room newroom) {
+		newroom.setstatus(Constant.FREE);
+		roomDao.update(newroom);
+	}
+
+	public static List<Room> watiToClean() {
+		return roomDao.listCleanning();
+	}
+	
+	public static List<Room> checkRoom() {
+		return roomDao.listAll();
 	}
 }

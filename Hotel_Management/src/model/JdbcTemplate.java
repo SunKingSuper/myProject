@@ -44,6 +44,7 @@ public class JdbcTemplate {
 			}
 			resultSet = preparedStatement.executeQuery();
 			resultList = rsHandle.handle(resultSet);
+			TheLog.info("执行成功");
 		} catch (Exception e) {
 			TheLog.warn("query操作出错");
 			e.printStackTrace();

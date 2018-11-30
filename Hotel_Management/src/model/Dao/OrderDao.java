@@ -8,5 +8,6 @@ public interface OrderDao {
 	public void save(Order order);
 	public void update(Order order);
 	public Order get(long idOrder);
+	public Order getByidRoom(long idRoom);
 	public List<Order> listallnotDone();
 }

@@ -1,13 +1,14 @@
 package model.domain;
 
-import java.sql.Date;
+import java.util.Date;
+import java.sql.Timestamp;
 
 public class Order {
 	private long idOrder;
 	private long main_idGuest;
-	private Date registerDate;
-	private Date leftDate;
-	private Date orderTime;
+	private Timestamp registerDate;
+	private Timestamp leftDate;
+	private Timestamp orderTime;
 	private float amount;
 	private long status;
 	private String comment;
@@ -21,15 +22,15 @@ public class Order {
 		this.main_idGuest = main_idGuest;
 	}
 
-	public void setregisterDate(Date registerDate) {
+	public void setregisterDate(Timestamp registerDate) {
 		this.registerDate = registerDate;
 	}
 
-	public void setleftDate(Date leftDate) {
+	public void setleftDate(Timestamp leftDate) {
 		this.leftDate = leftDate;
 	}
 
-	public void setorderTime(Date orderTime) {
+	public void setorderTime(Timestamp orderTime) {
 		this.orderTime = orderTime;
 	}
 
@@ -53,15 +54,15 @@ public class Order {
 		return main_idGuest;
 	}
 
-	public Date getregisterDate() {
+	public Timestamp getregisterDate() {
 		return registerDate;
 	}
 
-	public Date getleftDate() {
+	public Timestamp getleftDate() {
 		return leftDate;
 	}
 
-	public Date getorderTime() {
+	public Timestamp getorderTime() {
 		return orderTime;
 	}
 
@@ -79,7 +80,7 @@ public class Order {
 
 	@Override
 	public String toString() {
-		return String.format("订单号: %d | 下单人: %d | 入住日期: %tc | 离开日期: %tc | 订单时间: %tc | 金额: %.2f | 备注: %s |", idOrder,
+		return String.format("订单号: %d \n 下单人: %d \n 入住日期: %tc \n 离开日期: %tc \n 订单时间: %tc \n 金额: %.2f \n 备注: %s \n", idOrder,
 				main_idGuest, new Date(registerDate.getTime()), new Date(leftDate.getTime()),
 				new Date(orderTime.getTime()), amount, status, comment);
 	}

@@ -34,9 +34,9 @@ INSERT INTO `KingSun_Hotel`.`room` (`idRoom`, `roomType`, `status`) VALUES (504,
 INSERT INTO `KingSun_Hotel`.`room` (`idRoom`, `roomType`, `status`) VALUES (505, '行政房', 1001);
 
 
-INSERT INTO `KingSun_Hotel`.`User` (`idUser`, `password`) VALUES (1, '1');
-INSERT INTO `KingSun_Hotel`.`User` (`idUser`, `password`) VALUES (2, '2');
-INSERT INTO `KingSun_Hotel`.`User` (`idUser`, `password`) VALUES (3, '3');
+INSERT INTO `KingSun_Hotel`.`User` (`idUser`, `password`, `role`) VALUES (1, '1', 'server');
+INSERT INTO `KingSun_Hotel`.`User` (`idUser`, `password`, `role`) VALUES (2, '2', 'server');
+INSERT INTO `KingSun_Hotel`.`User` (`idUser`, `password`, `role`) VALUES (3, '3', 'cleaner');
 SELECT * FROM KingSun_Hotel.User;
 
 INSERT INTO `KingSun_Hotel`.`roleSale` (`guestRole`, `dismiss`) VALUES ('普通客人', 1);

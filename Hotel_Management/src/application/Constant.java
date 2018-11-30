@@ -21,6 +21,7 @@ final public class Constant {
 	public static final String MenuBook = "预定房间";
 	public static final String MenuRegister = "入住房间";
 	public static final String MenuLeave = "退房处理";
+		public static final String OrderNotFound = "对应房间无订单";
 	public static final String MenuShow = "查看订单信息";
 		public static final String QueryShow = "查找相关订单";
 		public static final String OrderShow = "显示过去所有订单";

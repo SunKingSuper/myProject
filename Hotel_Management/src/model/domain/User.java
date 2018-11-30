@@ -8,6 +8,7 @@ public class User {
 	private String password;
 	private Timestamp lastLogin;
 	private Timestamp lastLogout;
+	private String role;
 
 	public void setidUser(long id) {
 		idUser = id;
@@ -25,6 +26,10 @@ public class User {
 		this.lastLogout = lastLogout;
 	}
 
+	public void setrole(String role) {
+		this.role = role;
+	}
+	
 	public long getidUser() {
 		return idUser;
 	}
@@ -41,6 +46,10 @@ public class User {
 		return lastLogout;
 	}
 
+	public String getrole() {
+		return role;
+	}
+	
 	@Override
 	public String toString() {
 		return String.format("帐号 %d |密码 %s |最后登录时间 %tc |最后退出时间 %tc", idUser, password, new Date(lastLogin.getTime()),

@@ -35,6 +35,13 @@ public class OrderDaoImpl implements OrderDao {
 		return JdbcTemplate.query("SELECT * FROM order)", new OrderResultSetHandler());
 	}
 
+	@Override
+	public Order getByidRoom(long idRoom) {
+		List<Order> list = JdbcTemplate.query("SELECT * FROM order WHERE (idOrder = (SELECT idOrder FROM orderRoom WHERE (idRoom = ?))",
+				new OrderResultSetHandler(), idRoom);
+		return list.size() == 1?null:list.get(0);
+	}
+
 }
 
 class OrderResultSetHandler implements MyResultSetHandle {
@@ -44,9 +51,9 @@ class OrderResultSetHandler implements MyResultSetHandle {
 			Order order = new Order();
 			order.setidOrder(resultSet.getLong("idOrder"));
 			order.setmain_idGuest(resultSet.getLong("main_idGuest"));
-			order.setregisterDate(resultSet.getDate("registerDate"));
-			order.setleftDate(resultSet.getDate("leftDate"));
-			order.setorderTime(resultSet.getDate("orderTime"));
+			order.setregisterDate(resultSet.getTimestamp("registerDate"));
+			order.setleftDate(resultSet.getTimestamp("leftDate"));
+			order.setorderTime(resultSet.getTimestamp("orderTime"));
 			order.setamount(resultSet.getFloat("amount"));
 			order.setstatus(resultSet.getLong("status"));
 			order.setcomment(resultSet.getString("comment"));
