@@ -1,5 +1,7 @@
 package model.test;
 
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 
 import application.Constant;
@@ -12,14 +14,15 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 public class Test extends Application {
-	
+	static SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	public static void main(String[] args) {
-		launch(args);
+		Date date = new Date(10000);
+		System.out.println(df.format(date));
 	}
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		new A();
+		
 	}
 }
 

@@ -1,5 +1,6 @@
 package application;
 
+import application.toolkit.RoomLabel;
 import control.Core;
 import model.domain.Room;
 import javafx.event.EventHandler;
@@ -67,7 +68,7 @@ public class CleanerStage extends MyStage {
 				cleanningRoom.getChildren().removeAll();
 				Iterator<Room> iterator = list.iterator();
 				while(iterator.hasNext()) {
-					cleanningRoom.getChildren().add(new RoomLabel(iterator.next()));
+					cleanningRoom.getChildren().add(new RoomLabel(iterator.next(), idRoom));
 				}
 			}
 		}, 0, 6000); //每分钟刷新一次
@@ -81,26 +82,4 @@ public class CleanerStage extends MyStage {
 		mainroot.getChildren().addAll(exit,vbox);
 		root = mainroot;
 	}
-	
-	class RoomLabel extends Label {
-		public RoomLabel(Room room) {
-			super();
-			setTextAlignment(TextAlignment.CENTER);
-			setText(String.valueOf(room.getidRoom()));
-			setFont(new Font(16));
-			RoomLabel that = this;
-			setOnMouseClicked(new EventHandler<MouseEvent>() {
-
-				@Override
-				public void handle(MouseEvent event) {
-					idRoom.inputfield.setText(that.getText());
-				}
-			});
-			setPrefWidth(200);
-			setStyle("-fx-background-color:" + Constant.BackgroundBlue);
-			
-			textFillProperty().set(Paint.valueOf("white"));
-		}
-	}
 }
-

@@ -16,6 +16,8 @@ final public class Constant {
 
 	// mainStage
 	public static final long FreshPeriod = 5000L;
+	// registerStage
+	public static final long rFreshPeriod = 1000L;
 
 	// funcmenu
 	public static final String MenuBook = "预定房间";
@@ -42,6 +44,7 @@ final public class Constant {
 	public static final Long oDONE = 2003L;
 	
 	// color
+	public static final String Background = "-fx-background-color:";
 	public static final String Blue = "#3366cc";
 	public static final String Gray = "#cccc99";
 	public static final String Red = "#ff0033";

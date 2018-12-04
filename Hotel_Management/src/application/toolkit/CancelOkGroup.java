@@ -11,18 +11,19 @@ public class CancelOkGroup extends HBox {
 	public Button cancel = new Button("取消");
 	public Button ok = new Button("确定");
 	private MyStage parent;
-	public CancelOkGroup() {
-		init(100, true);
+	public CancelOkGroup(MyStage stage) {
+		init(100, true, stage);
 	}
-	public CancelOkGroup(double space, boolean isDefault) {
-		init(space, isDefault);
+	public CancelOkGroup(double space, boolean isDefault, MyStage stage) {
+		init(space, isDefault, stage);
 	}
-	public CancelOkGroup(String cancelTitle, String okTitle, double space, Boolean isDefault) {
+	public CancelOkGroup(String cancelTitle, String okTitle, double space, Boolean isDefault, MyStage stage) {
 		cancel.setText(cancelTitle);
 		ok.setText(okTitle);
-		init(space, isDefault);
+		init(space, isDefault, stage);
 	}
-	private void init(double space, Boolean isDefault) {
+	private void init(double space, Boolean isDefault, MyStage stage) {
+		parent = stage;
 		getChildren().addAll(cancel, ok);
 		setSpacing(space);
 		if (isDefault) {

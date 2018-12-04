@@ -1,8 +1,5 @@
 package application.toolkit;
 
-
-import com.sun.xml.internal.bind.v2.model.core.ID;
-
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.Node;

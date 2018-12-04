@@ -10,4 +10,5 @@ public interface OrderDao {
 	public Order get(long idOrder);
 	public Order getByidRoom(long idRoom);
 	public List<Order> listallnotDone();
+	public List<Order> listall();
 }

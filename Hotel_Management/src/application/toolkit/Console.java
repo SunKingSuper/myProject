@@ -1,5 +1,6 @@
 package application.toolkit;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -19,6 +20,7 @@ public class Console extends VBox {
 	Label status = new Label();
 	Label time = new Label();
 	TextArea infomation = new TextArea();
+	SimpleDateFormat dFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 
 	public Console(List<Room> list) {
 		super();
@@ -56,8 +58,7 @@ public class Console extends VBox {
 				cleanning++;
 			}
 		}
-		Date date = new Date();
-		time.setText(date.toString());
+		time.setText(dFormat.format(new Date()));
 		status.setText(String.format(Constant.StatusText, free, booked, registered, cleanning));
 	}
 

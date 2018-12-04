@@ -1,9 +1,11 @@
 package application;
 
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
 import application.toolkit.NumberField;
+import application.toolkit.RegisterItem;
 import control.Core;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -25,21 +27,21 @@ import javafx.util.StringConverter;
 import model.Dao.RoomTypeDao;
 import model.Dao.Impl.RoomTypeDaoImpl;
 import model.domain.Guest;
+import model.domain.Room;
 import model.domain.RoomType;
 
 public class BookStage extends MyStage {
 	ObservableList<Label> roomTypeList = FXCollections.observableArrayList();
 	ObservableList<Label> bookRoomTypeList = FXCollections.observableArrayList();
 	ListView<Label> bookRoomTypeListView = new ListView<>();
+	HashMap<String, Integer> roomTypeLeft = new HashMap();	// 记录剩余FREE房间
 
 	public BookStage(App platform) {
-		check();
 		ui(platform);
 		setTitle(Constant.MenuBook);
 	}
 
-	private void check() {
-		List<RoomType> list = Core.roomTypes();
+	private void check(List<RoomType> list) {
 		Iterator<RoomType> iterator = list.iterator();
 		while (iterator.hasNext()) {
 			RoomType roomType = iterator.next();
@@ -75,13 +77,20 @@ public class BookStage extends MyStage {
 		HBox registerBox = new HBox();
 		registerBox.setAlignment(Pos.CENTER);
 		Button addRegister = new Button();
-		addRegister.setGraphic(new ImageView(new Image("Resource/add.png")));
+		addRegister.setGraphic(new ImageView(new Image(Constant.AddImgUrl)));
 		registerBox.getChildren().add(addRegister);
+		addRegister.setOnMouseClicked(new EventHandler<MouseEvent>() {
+
+			@Override
+			public void handle(MouseEvent event) {
+				registerBox.getChildren().add(new RegisterItem());
+			}
+		});
 
 		HBox roomBox = new HBox();
 		roomBox.setAlignment(Pos.CENTER);
 		Button addRoom = new Button();
-		addRoom.setGraphic(new ImageView(new Image("Resource/add.png")));
+		addRoom.setGraphic(new ImageView(new Image(Constant.AddImgUrl)));
 
 		ListView<Label> roomTypeListView = new ListView<>();
 		roomTypeListView.setItems(roomTypeList);
@@ -91,9 +100,16 @@ public class BookStage extends MyStage {
 			public void handle(MouseEvent event) {
 				if (event.isPrimaryButtonDown() && event.getClickCount() == 2) {
 					Label currentItemSelected = roomTypeListView.getSelectionModel().getSelectedItem();
-					bookRoomTypeList.add(currentItemSelected);
-					bookRoomTypeListView.setItems(bookRoomTypeList);
-					bookRoomTypeListView.refresh();
+					RoomType roomType = (RoomType) currentItemSelected.getUserData();
+					if (roomTypeLeft.get(roomType.getroomType()) > 0) {
+						bookRoomTypeList.add(currentItemSelected);
+						bookRoomTypeListView.setItems(bookRoomTypeList);
+						bookRoomTypeListView.refresh();
+						roomTypeLeft.put(roomType.getroomType(), roomTypeLeft.get(roomType.getroomType()) - 1);
+					} else {
+						new WarnDialog(platform, "目前没有该房型");
+					}
+					
 				}
 			}
 		});
@@ -117,8 +133,7 @@ public class BookStage extends MyStage {
 
 			@Override
 			public void handle(MouseEvent event) {
-				stage.close();
-				platform.exit();
+				close();
 			}
 		});
 
@@ -138,8 +153,20 @@ public class BookStage extends MyStage {
 		mainroot.setVgap(10);
 
 		root = mainroot;
-		stage.setWidth(800);
-		stage.setHeight(600);
+		setWidth(800);
+		setHeight(600);
 	}
-
+	
+	public void refresh(List<Room> rooms) {
+		List<RoomType> list = Core.roomTypes();
+		check(list);
+		Iterator<Room> iterator = rooms.iterator();
+		roomTypeLeft.clear();
+		while(iterator.hasNext()) {
+			Room room = iterator.next();
+			if(room.getstatus() == Constant.FREE) {
+				roomTypeLeft.put(room.getroomType(), roomTypeLeft.getOrDefault(room.getroomType(), 0) + 1);
+			}
+		}
+	}
 }

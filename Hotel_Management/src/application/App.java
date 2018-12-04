@@ -4,6 +4,7 @@ import java.util.Timer;
 
 import Log.TheLog;
 import control.Core;
+import application.*;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.stage.Stage;
@@ -24,10 +25,12 @@ public class App extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		TheLog.info("App启动");
-		new LoginStage(this);
+//		new LoginStage(this);
 //		new MainStage(this);
 //		new BookStage(this);
 //		new ShowStage(this);
+//		new LeaveStage(this);
+		new RegisterStage(this);
 	}
 
 	public void exit() {

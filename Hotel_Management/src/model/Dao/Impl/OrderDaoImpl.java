@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import application.Constant;
 import model.JdbcTemplate;
 import model.Dao.MyResultSetHandle;
 import model.Dao.OrderDao;
@@ -32,7 +33,7 @@ public class OrderDaoImpl implements OrderDao {
 
 	@Override
 	public List<Order> listallnotDone() {
-		return JdbcTemplate.query("SELECT * FROM order)", new OrderResultSetHandler());
+		return JdbcTemplate.query("SELECT * FROM order WHERE status != ?", new OrderResultSetHandler(), Constant.oDONE);
 	}
 
 	@Override
@@ -40,6 +41,11 @@ public class OrderDaoImpl implements OrderDao {
 		List<Order> list = JdbcTemplate.query("SELECT * FROM order WHERE (idOrder = (SELECT idOrder FROM orderRoom WHERE (idRoom = ?))",
 				new OrderResultSetHandler(), idRoom);
 		return list.size() == 1?null:list.get(0);
+	}
+
+	@Override
+	public List<Order> listall() {
+		return JdbcTemplate.query("SELECT * FROM order", new OrderResultSetHandler());
 	}
 
 }

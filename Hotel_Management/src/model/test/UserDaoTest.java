@@ -36,8 +36,8 @@ public class UserDaoTest {
 	}
 
 	public static void main(String[] args) {
-		// save();
-		// getUser();
+//	 save();
+		 getUser();
 		// updateUser();
 		// deleteUser();
 	}

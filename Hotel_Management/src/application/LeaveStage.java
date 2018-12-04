@@ -46,6 +46,7 @@ public class LeaveStage extends MyStage {
 		showOrder.setEditable(false);
 		VBox mainroot = new VBox();
 		mainroot.getChildren().addAll(idRoom, showOrder);
+		root = mainroot;
 	}
 
 	private void leaveHandle() {

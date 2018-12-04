@@ -22,7 +22,6 @@ public class RoomType {
 	
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
 		return String.format("房型: %s | 价格: %.2f", roomType, price);
 	}
 }
