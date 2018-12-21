@@ -3,6 +3,8 @@ package application;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import application.toolkit.NumberField;
 import application.toolkit.RegisterItem;
@@ -35,7 +37,11 @@ public class BookStage extends MyStage {
 	ObservableList<Label> bookRoomTypeList = FXCollections.observableArrayList();
 	ListView<Label> bookRoomTypeListView = new ListView<>();
 	HashMap<String, Integer> roomTypeLeft = new HashMap();	// 记录剩余FREE房间
-
+	HBox registerBox = new HBox();
+	Button addRegister = new Button();
+	
+	Timer timer = new Timer();
+	
 	public BookStage(App platform) {
 		ui(platform);
 		setTitle(Constant.MenuBook);
@@ -73,17 +79,15 @@ public class BookStage extends MyStage {
 
 		Label bookerPhone = new Label("电话号码");
 		NumberField bookerPhoneT = new NumberField();
-
-		HBox registerBox = new HBox();
+		
 		registerBox.setAlignment(Pos.CENTER);
-		Button addRegister = new Button();
 		addRegister.setGraphic(new ImageView(new Image(Constant.AddImgUrl)));
 		registerBox.getChildren().add(addRegister);
 		addRegister.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
 			@Override
 			public void handle(MouseEvent event) {
-				registerBox.getChildren().add(new RegisterItem());
+				add();
 			}
 		});
 
@@ -137,6 +141,14 @@ public class BookStage extends MyStage {
 			}
 		});
 
+		timer.schedule(new TimerTask() {
+			
+			@Override
+			public void run() {
+				refresh();
+			}
+		}, 0L, Constant.rFreshPeriod);
+		
 		GridPane mainroot = new GridPane();
 		mainroot.setAlignment(Pos.CENTER);
 		mainroot.add(bookerName, 0, 0);
@@ -157,7 +169,8 @@ public class BookStage extends MyStage {
 		setHeight(600);
 	}
 	
-	public void refresh(List<Room> rooms) {
+	public void refresh() {
+		List<Room> rooms = Core.checkRoom();
 		List<RoomType> list = Core.roomTypes();
 		check(list);
 		Iterator<Room> iterator = rooms.iterator();
@@ -168,5 +181,11 @@ public class BookStage extends MyStage {
 				roomTypeLeft.put(room.getroomType(), roomTypeLeft.getOrDefault(room.getroomType(), 0) + 1);
 			}
 		}
+	}
+	
+	public void add() {
+		registerBox.getChildren().remove(addRegister);
+		registerBox.getChildren().add(new RegisterItem());
+		registerBox.getChildren().add(addRegister);
 	}
 }

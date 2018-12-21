@@ -2,41 +2,51 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="kind" key="selection"/>
+		<item value="setText" key="selection"/>
 		<item value="true" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="Constant.LoginError"/>
-			<item value="kind"/>
-			<item value="stage."/>
-			<item value="OrderRoom"/>
-			<item value="OrderDetail"/>
-			<item value="Core"/>
-			<item value="CO\ore"/>
-			<item value="core"/>
+			<item value="setText"/>
+			<item value="cleanningRoom"/>
+			<item value="private"/>
+			<item value="Order"/>
+			<item value="myOrder.setAmount(order.getamount());"/>
+			<item value="MyOrder"/>
+			<item value="Image"/>
+			<item value="Guest"/>
+			<item value="room"/>
 			<item value="Room"/>
-			<item value="exit"/>
-			<item value="Date"/>
-			<item value="Change"/>
-			<item value="resu"/>
-			<item value="re"/>
+			<item value="material"/>
+			<item value="Material"/>
+			<item value="observableList"/>
+			<item value="idmaterial"/>
+			<item value="idmaterialL"/>
 		</list>
 		<list key="replacehistory">
-			<item value=""/>
-			<item value="OrderGuest"/>
-			<item value="OrderRoom"/>
-			<item value="Core"/>
-			<item value="RoomType"/>
-			<item value="Timestamp"/>
+			<item value="registeredRoom"/>
+			<item value="public"/>
+			<item value="MyOrder"/>
+			<item value="myOrder.setAmount(order.getamount());"/>
+			<item value="Order"/>
+			<item value="String"/>
+			<item value="guest"/>
+			<item value="order"/>
+			<item value="observableListMaterial"/>
+			<item value="observableListOrder"/>
+			<item value="Material"/>
+			<item value="idorder"/>
+			<item value="orderAdd"/>
+			<item value="orderadd"/>
+			<item value="change"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="367" key="DIALOG_WIDTH"/>
 		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 		<item value="472" key="DIALOG_HEIGHT"/>
-		<item value="1241" key="DIALOG_X_ORIGIN"/>
-		<item value="409" key="DIALOG_Y_ORIGIN"/>
+		<item value="1245" key="DIALOG_X_ORIGIN"/>
+		<item value="458" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

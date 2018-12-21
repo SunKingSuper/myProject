@@ -3,11 +3,14 @@ package application;
 import application.toolkit.TitleInputField;
 import control.Core;
 
+import java.util.Iterator;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import application.toolkit.CancelOkGroup;
 import application.toolkit.NumberField;
+import application.toolkit.RoomLabel;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
@@ -20,6 +23,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import model.domain.Room;
 
 public class RegisterStage extends MyStage {
 	Timer timer = new Timer();
@@ -28,6 +32,7 @@ public class RegisterStage extends MyStage {
 	TitleInputField room = new TitleInputField("房间号", new NumberField());
 	TitleInputField guest = new TitleInputField("入住人姓名");
 	TitleInputField idCard = new TitleInputField("身份证");
+	FlowPane roomshow = new FlowPane();
 	
 	public RegisterStage(App platform) {
 		setTitle(Constant.MenuRegister);
@@ -38,7 +43,6 @@ public class RegisterStage extends MyStage {
 	protected void init() {
 		CancelOkGroup cancelok = new CancelOkGroup(150, false, this);
 		Label title = new Label("空余房间");
-		FlowPane roomshow = new FlowPane();
 		ScrollPane freeroom = new ScrollPane();
 		RadioButton isTogether = new RadioButton();
 		hBox.getChildren().add(isTogether);
@@ -108,7 +112,13 @@ public class RegisterStage extends MyStage {
 	}
 	
 	private void refresh() {
-		System.out.println("1");
+		roomshow.getChildren().clear();
+		List<Room> list = Core.checkRoom();
+		Iterator<Room> iterator = list.iterator();
+		while(iterator.hasNext()) {
+			RoomLabel roomLabel = new RoomLabel(iterator.next(), room);
+			roomshow.getChildren().add(roomLabel);
+		}
 	}
 	
 	private void exit() {

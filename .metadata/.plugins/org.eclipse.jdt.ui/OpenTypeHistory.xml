@@ -1,16 +1,2 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<typeInfoHistroy>
-<typeInfo handle="=Hotel_Management/src&lt;application{App.java[App" modifiers="1" timestamp="1543500948096"/>
-<typeInfo handle="=Hotel_Management/src&lt;application{MainStage.java[MainStage" modifiers="1" timestamp="1543617864008"/>
-<typeInfo handle="=Hotel_Management/src&lt;model{JdbcTemplate.java[JdbcTemplate" modifiers="1" timestamp="1543538309415"/>
-<typeInfo handle="=Hotel_Management/src&lt;application{LoginStage.java[LoginStage" modifiers="1" timestamp="1543563286566"/>
-<typeInfo handle="=Hotel_Management/src&lt;control{Core.java[Core" modifiers="1" timestamp="1543585146410"/>
-<typeInfo handle="=Hotel_Management/src&lt;model{JdbcUtils.java[JdbcUtils" modifiers="1" timestamp="1542892448650"/>
-<typeInfo handle="=Hotel_Management/src&lt;application{Constant.java[Constant" modifiers="17" timestamp="1543620324166"/>
-<typeInfo handle="=Hotel_Management/src&lt;application.toolkit{FuncMenu.java[FuncMenu" modifiers="1" timestamp="1543537692995"/>
-<typeInfo handle="=Hotel_Management/src&lt;application.toolkit{Console.java[Console" modifiers="1" timestamp="1543618130341"/>
-<typeInfo handle="=Hotel_Management/src&lt;application.toolkit{RoomView.java[RoomView" modifiers="1" timestamp="1543618008968"/>
-<typeInfo handle="=Hotel_Management/src&lt;model.test{UserDaoTest.java[UserDaoTest" modifiers="1" timestamp="1543668311691"/>
-<typeInfo handle="=Hotel_Management/src&lt;model.domain{User.java[User" modifiers="1" timestamp="1543561586592"/>
-<typeInfo handle="=Hotel_Management/\/usr\/lib\/jvm\/jdk1.8.0_191\/jre\/lib\/rt.jar&lt;java.util(Timer.class[Timer" modifiers="1" timestamp="1538830363000"/>
-</typeInfoHistroy>
+<typeInfoHistroy/>

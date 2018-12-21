@@ -16,7 +16,7 @@ final public class Constant {
 
 	// mainStage
 	public static final long FreshPeriod = 5000L;
-	// registerStage
+	// registerStage & bookStage
 	public static final long rFreshPeriod = 1000L;
 
 	// funcmenu

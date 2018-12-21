@@ -25,12 +25,12 @@ public class App extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		TheLog.info("App启动");
-//		new LoginStage(this);
+		new LoginStage(this);
 //		new MainStage(this);
 //		new BookStage(this);
 //		new ShowStage(this);
 //		new LeaveStage(this);
-		new RegisterStage(this);
+//		new RegisterStage(this);
 	}
 
 	public void exit() {

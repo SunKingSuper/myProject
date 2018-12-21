@@ -16,8 +16,8 @@ import javafx.stage.Stage;
 public class Test extends Application {
 	static SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	public static void main(String[] args) {
-		Date date = new Date(10000);
-		System.out.println(df.format(date));
+		String name = "";
+		System.out.println(name == null);
 	}
 
 	@Override

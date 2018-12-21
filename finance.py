@@ -36,8 +36,8 @@ for i in range(period):
     
 a = plt.figure()
 plt.hold(a)
-plt.plot(repayment,'.')
-plt.plot(profit,'o')
-plt.plot(epxectedIncome,'x')
+plt.plot(repayment,'.-')
+plt.plot(profit,'o-')
+plt.plot(epxectedIncome,'x-')
 plt.legend(["repayment","profit","epxectedIncome"])
 print(repayment, "\n", profit, "\n", epxectedIncome)

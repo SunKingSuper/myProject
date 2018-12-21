@@ -12,7 +12,7 @@
 		<item value="518" key="DIALOG_HEIGHT"/>
 		<item value="598" key="DIALOG_X_ORIGIN"/>
 		<item value="208" key="DIALOG_Y_ORIGIN"/>
-		<item value="true" key="BUILD_NOW"/>
+		<item value="false" key="BUILD_NOW"/>
 	</section>
 	<section name="NewWizardAction">
 		<item value="org.eclipse.fx.ide.jdt.ui.javafx" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>

@@ -24,7 +24,7 @@ public class LeaveStage extends MyStage {
 
 	@Override
 	protected void init() {
-		CancelOkGroup buttons = new CancelOkGroup();
+		CancelOkGroup buttons = new CancelOkGroup(this);
 		buttons.ok.setText("确认退房");
 		buttons.ok.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
